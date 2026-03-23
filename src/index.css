@@ -1,0 +1,496 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Royal Digital Design System - Deep Blue & Gold Theme */
+
+@layer base {
+  :root {
+    /* Light Mode - Clean White/Gray */
+    --background: 0 0% 97%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 43 100% 64%;
+    --primary-foreground: 211 100% 21%;
+
+    --secondary: 201 99% 31%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 200 98% 37%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 211 100% 21%;
+    --input: 201 99% 31%;
+    --ring: 43 100% 64%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens - Deep Blue & Gold Palette */
+    --navy: 211 100% 21%;           /* #002f6c - Deep Navy */
+    --gold: 43 100% 64%;            /* #ffc947 - Golden Yellow (accent) */
+    --purple: 201 99% 31%;          /* #01579b - Dark Cyan Blue */
+    --navy-light: 200 98% 37%;      /* #0277bd - Medium Cyan Blue */
+    --sage: 0 0% 97%;               /* #f8f8f8 - Light Gray */
+    --teal: 201 99% 31%;            /* #01579b - Dark Cyan Blue */
+
+    /* Typography */
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(43 100% 64%) 0%, hsl(200 98% 37%) 100%);
+    --gradient-border: linear-gradient(135deg, hsl(43 100% 64%) 0%, hsl(201 99% 31%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(211 100% 21% / 0.08);
+    --shadow-md: 0 8px 24px -8px hsl(211 100% 21% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(211 100% 21% / 0.15);
+    --shadow-glow-gold: 0 0 40px -10px hsl(43 100% 64% / 0.5);
+    --shadow-glow-purple: 0 0 40px -10px hsl(201 99% 31% / 0.5);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 43 100% 64%;
+    --sidebar-primary-foreground: 211 100% 21%;
+    --sidebar-accent: 200 98% 37%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 43 100% 64%;
+  }
+
+  .dark {
+    /* Dark Mode - Deep Navy (#002f6c) */
+    --background: 211 100% 21%;
+    --foreground: 0 0% 100%;
+
+    --card: 201 99% 31%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 211 100% 21%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 43 100% 64%;
+    --primary-foreground: 211 100% 21%;
+
+    --secondary: 200 98% 37%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 201 99% 31%;
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 200 98% 37%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 98% 37%;
+    --input: 201 99% 31%;
+    --ring: 43 100% 64%;
+
+    /* Custom tokens dark */
+    --navy: 211 100% 21%;           /* #002f6c - Deep Navy */
+    --gold: 43 100% 64%;            /* #ffc947 - Golden Yellow (accent) */
+    --purple: 201 99% 31%;          /* #01579b - Dark Cyan Blue */
+    --navy-light: 200 98% 37%;      /* #0277bd - Medium Cyan Blue */
+    --sage: 211 100% 21%;           /* #002f6c - Deep Navy */
+    --teal: 200 98% 37%;            /* #0277bd - Medium Cyan Blue */
+
+    /* Gradients dark */
+    --gradient-hero: linear-gradient(135deg, hsl(211 100% 21%) 0%, hsl(201 99% 31%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(201 99% 31%) 0%, hsl(211 100% 21%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(43 100% 64%) 0%, hsl(200 98% 37%) 100%);
+    --gradient-border: linear-gradient(135deg, hsl(43 100% 64%) 0%, hsl(201 99% 31%) 100%);
+
+    /* Shadows dark */
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 8px 24px -8px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 16px 48px -12px hsl(0 0% 0% / 0.5);
+    --shadow-glow-gold: 0 0 60px -15px hsl(43 100% 64% / 0.6);
+    --shadow-glow-purple: 0 0 60px -15px hsl(201 99% 31% / 0.6);
+
+    --sidebar-background: 211 100% 21%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 43 100% 64%;
+    --sidebar-primary-foreground: 211 100% 21%;
+    --sidebar-accent: 201 99% 31%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 200 98% 37%;
+    --sidebar-ring: 43 100% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight font-bold;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .card-elevated {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-md);
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-glow-purple);
+  }
+
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: var(--gradient-border);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* 3D Tilt Card Effect */
+  .tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .tilt-card:hover {
+    transform: rotateX(5deg) rotateY(-5deg);
+  }
+
+  /* Gold Focus Underline for Inputs */
+  .gold-underline-input {
+    @apply border-0 border-b-2 border-border rounded-none bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-colors;
+  }
+
+  /* =============================================
+     iOS 26 Liquid Glass — Thin-Film Interference
+     Subtle caustic fringe at edges only (no full rainbow border)
+     ============================================= */
+
+  /* Thin-film prismatic shimmer — only at the very edge pixels */
+  @keyframes thin-film-shift {
+    0%   { background-position: 0% 0%; }
+    33%  { background-position: 100% 50%; }
+    66%  { background-position: 50% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+
+  @keyframes caustic-drift {
+    0%   { opacity: 0.12; transform: rotate(0deg) scale(1); }
+    50%  { opacity: 0.22; transform: rotate(3deg) scale(1.01); }
+    100% { opacity: 0.12; transform: rotate(0deg) scale(1); }
+  }
+
+  .glass-ios {
+    background: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(32px) saturate(2.2) brightness(1.12);
+    -webkit-backdrop-filter: blur(32px) saturate(2.2) brightness(1.12);
+    border: none;
+    position: relative;
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.10),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+    isolation: isolate;
+  }
+
+  /* Thin-film fringe — a 1px prismatic wash only at the border seam */
+  .glass-ios::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        125deg,
+        transparent 0%,
+        rgba(255,100,150,0.28) 18%,
+        rgba(100,220,255,0.22) 35%,
+        rgba(180,100,255,0.18) 52%,
+        rgba(255,210,80,0.20) 68%,
+        rgba(80,220,180,0.22) 82%,
+        transparent 100%
+      );
+    background-size: 300% 300%;
+    animation: thin-film-shift 8s ease-in-out infinite;
+    /* Only show at the 1-2px edge via a feathered mask */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1.5px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Soft caustic inner highlight — simulates light refraction inside glass */
+  .glass-ios::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      ellipse 60% 30% at 30% 20%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .glass-ios-card {
+    background: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(28px) saturate(2) brightness(1.08);
+    -webkit-backdrop-filter: blur(28px) saturate(2) brightness(1.08);
+    border: none;
+    position: relative;
+    box-shadow:
+      0 4px 20px 0 rgba(0, 0, 0, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    isolation: isolate;
+  }
+
+  /* Thin-film prismatic fringe at card edges */
+  .glass-ios-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255,80,140,0.20) 15%,
+        rgba(80,210,255,0.16) 32%,
+        rgba(160,80,255,0.14) 50%,
+        rgba(255,190,60,0.16) 67%,
+        rgba(60,210,160,0.18) 82%,
+        transparent 100%
+      );
+    background-size: 300% 300%;
+    animation: thin-film-shift 10s ease-in-out infinite;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+  }
+
+  /* Caustic inner glow */
+  .glass-ios-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      ellipse 70% 25% at 25% 15%,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 65%
+    );
+    pointer-events: none;
+    animation: caustic-drift 6s ease-in-out infinite;
+  }
+
+  .glass-ios-card:hover::before {
+    opacity: 0.85;
+  }
+
+  .glass-ios-card:hover {
+    box-shadow:
+      0 16px 48px 0 rgba(0, 0, 0, 0.20),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* Light mode overrides — slightly more visible fringe */
+  :root .glass-ios {
+    background: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(32px) saturate(1.8) brightness(1.05);
+    -webkit-backdrop-filter: blur(32px) saturate(1.8) brightness(1.05);
+    box-shadow:
+      0 8px 32px 0 rgba(0, 47, 108, 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  :root .glass-ios::before {
+    opacity: 0.45;
+  }
+
+  :root .glass-ios-card {
+    background: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(28px) saturate(1.6) brightness(1.04);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(1.04);
+    box-shadow:
+      0 4px 20px 0 rgba(0, 47, 108, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  :root .glass-ios-card::before {
+    opacity: 0.40;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-binary {
+    animation: binary-decode 0.1s steps(1) infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-draw-line {
+    animation: draw-line 2s ease-out forwards;
+  }
+
+  .animate-bounce-soft {
+    animation: bounce-soft 0.5s ease-out;
+  }
+
+  .animate-plane-fly {
+    animation: plane-fly 0.8s ease-out forwards;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes binary-decode {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px -5px hsl(39 72% 68% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px -5px hsl(39 72% 68% / 0.6);
+    }
+  }
+
+  @keyframes draw-line {
+    from { 
+      stroke-dashoffset: 1000;
+    }
+    to { 
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes bounce-soft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes plane-fly {
+    0% { 
+      transform: translateX(0) translateY(0) rotate(0);
+      opacity: 1;
+    }
+    100% { 
+      transform: translateX(50px) translateY(-30px) rotate(-15deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin 2s linear infinite;
+  }
+
+  /* Card flip animation */
+  .flip-card {
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(-180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+}
