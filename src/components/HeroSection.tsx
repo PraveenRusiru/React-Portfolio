@@ -173,6 +173,8 @@ export const HeroSection = () => {
               {/* Profile image */}
               <motion.img
                 src={profilePhoto}
+                loading="lazy"
+                  decoding="async"
                 alt="Profile Photo"
                 className="h-[60vh] lg:h-[75vh] w-auto object-cover object-top relative z-10 drop-shadow-2xl"
                 animate={{ y: [-10, 10, -10] }}
