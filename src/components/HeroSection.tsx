@@ -34,10 +34,10 @@ const itemVariants = {
 };
 
 const roles = [
-  "Backend Developer",
-  "Full Stack(MERN) Dev",
-  "Software Engineering Undergraduate",
-  "Data Analysis | AI Enthusiast",
+  "Backend Dev",
+  "Full Stack Dev",
+  "AI Enthusiast",
+  "Data Analysis",
 ];
 
 const BinaryText = ({ text }: { text: string }) => {
