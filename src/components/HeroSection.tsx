@@ -243,7 +243,7 @@ export const HeroSection = () => {
                     transition={{ duration: 1.5, repeat: Infinity }}
                   />
                 </motion.span>
-                <span className="text-green-400 relative z-10 text-2xl">
+                <span className="text-green-400 relative z-10 text-base sm:text-lg md:text-2xl">
                   Open for Freelance
                 </span>
                 <Briefcase className="w-3 h-3 text-green-400 relative z-10" />
