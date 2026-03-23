@@ -5,8 +5,6 @@ import { useNotification } from '@/contexts/NotificationContext';
 import { useCallback } from 'react';
 import ecommerce from '@/assets/boquet.png';
 import betting from '@/assets/betting site.png';
-import gymMangemnt from '@/assets/gym management.png';
-import therapyCenter from '@/assets/therapy center.png';
 import patientData from '@/assets/patient data analysis.png';  
 const techColors = {
   // Frontend
@@ -170,7 +168,8 @@ export const ProjectsSection = () => {
                 <div className="relative h-64 md:h-80 bg-gradient-to-br from-muted to-card overflow-hidden">
                   
                   <div className="absolute inset-0 flex-col items-center justify-center">
-                    <img src={project.image} alt={project.image} className="w-full h-full object-contain" />
+                    <img src={project.image} alt={project.image} loading="lazy"
+                        decoding="async"  className="w-full h-full object-contain" />
                     {/* <div className="text-center">
                       <div className="w-16 h-16 mx-auto mb-3 rounded-xl bg-primary/10 flex items-center justify-center">
                         <span className="text-2xl font-display font-bold text-primary">
