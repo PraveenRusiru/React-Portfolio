@@ -1,24 +1,29 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { GraduationCap, Award, Calendar, ExternalLink } from 'lucide-react';
-import { SiJavascript ,SiTypescript, 
-  SiPython, 
-  
-  SiSpringboot, 
-  SiNodedotjs, 
-  SiReact, 
-  SiMongodb, 
-  SiMysql, 
-  SiHibernate,SiFirebase,
-  SiGooglecloud,
-  SiVercel,
-  SiRailway,
-  SiFigma,
-  SiCanva,
-  SiGit,
-  SiGithub,
-  SiLinux,
-  SiApple} from "react-icons/si";
+
+import javascriptLogo from "@/assets/tech/javascript.svg";
+import typescriptLogo from "@/assets/tech/typescript.svg";
+import pythonLogo from "@/assets/tech/python.svg";
+import javaLogo from "@/assets/tech/java.svg";
+import springbootLogo from "@/assets/tech/springboot.svg";
+import nodejsLogo from "@/assets/tech/nodejs.svg";
+import reactLogo from "@/assets/tech/react.svg";
+import mongodbLogo from "@/assets/tech/mongodb.svg";
+import mysqlLogo from "@/assets/tech/mysql.svg";
+import hibernateLogo from "@/assets/tech/hibernate.svg";
+import firebaseLogo from "@/assets/tech/firebase.svg";
+import googlecloudLogo from "@/assets/tech/googlecloud.svg";
+import vercelLogo from "@/assets/tech/vercel.svg";
+import railwayLogo from "@/assets/tech/railway.svg";
+import figmaLogo from "@/assets/tech/figma.svg";
+import canvaLogo from "@/assets/tech/canva.svg";
+import powerpointLogo from "@/assets/tech/powerpoint.svg";
+import gitLogo from "@/assets/tech/git.svg";
+import githubLogo from "@/assets/tech/github.svg";
+import linuxLogo from "@/assets/tech/linux.svg";
+import windowsLogo from "@/assets/tech/windows.svg";
+import appleLogo from "@/assets/tech/apple.svg";
 
 const education = [
   {
@@ -51,11 +56,6 @@ interface SkillCategory {
   title: string;
   skills: Skill[];
 }
-
-{/* <svg xmlns="http://www.w3.org/2000/svg" aria-label="JavaScript" viewBox="0 0 512 512" id="javascript">
-  <rect width="512" height="512" fill="#f7df1e" rx="15%"></rect>
-  <path d="m324,370c10,17 24,29 47,29 20,0 33,-10 33,-24 0,-16 -13,-22 -35,-32l-12,-5c-35,-15 -58,-33 -58,-72 0,-36 27,-64 70,-64 31,0 53,11 68,39l-37,24c-8,-15 -17,-21 -31,-21 -14,0 -23,9 -23,21 0,14 9,20 30,29l12,5c41,18 64,35 64,76 0,43 -34,67 -80,67 -45,0 -74,-21 -88,-49zm-170,4c8,13 14,25 31,25 16,0 26,-6 26,-30V203h48v164c0,50 -29,72 -72,72 -39,0 -61,-20 -72,-44z"></path>
-</svg> */}
 
 const skillCategories: SkillCategory[] = [
   {
@@ -117,31 +117,43 @@ const skillCategories: SkillCategory[] = [
 ];
 
 const certifications = [
-  // {
-  //   name: 'AWS Solutions Architect',
-  //   issuer: 'Amazon Web Services',
-  //   year: '2023',
-  //   image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop',
-  //   credentialUrl: '#',
-  // },
-  // {
-  //   name: 'Google UX Design Certificate',
-  //   issuer: 'Google',
-  //   year: '2022',
-  //   image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=250&fit=crop',
-  //   credentialUrl: '#',
-  // },
-  // {
-  //   name: 'Meta Frontend Developer',
-  //   issuer: 'Meta',
-  //   year: '2022',
-  //   image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop',
-  //   credentialUrl: '#',
-  // },
+  {
+    name: 'Introduction to Python',
+    issuer: 'DataCamp',
+    year: 'Mar 2025',
+    image: '@/assets/certificates/introduction to python.png',
+    credentialUrl: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/353b9ad941226b2d408c28d81ecf823fe0e558b8',
+  },
 ];
+
+const skillLogos: Record<string, string> = {
+  JavaScript: javascriptLogo,
+  TypeScript: typescriptLogo,
+  Python: pythonLogo,
+  Java: javaLogo,
+  SpringBoot: springbootLogo,
+  Node: nodejsLogo,
+  React: reactLogo,
+  MongoDB: mongodbLogo,
+  MySQL: mysqlLogo,
+  Hibernate: hibernateLogo,
+  Firebase: firebaseLogo,
+  "Google Cloud": googlecloudLogo,
+  Vercel: vercelLogo,
+  Railway: railwayLogo,
+  Figma: figmaLogo,
+  Canva: canvaLogo,
+  PowerPoint: powerpointLogo,
+  Git: gitLogo,
+  GitHub: githubLogo,
+  Linux: linuxLogo,
+  Windows: windowsLogo,
+  macOS: appleLogo,
+};
 
 const SkillItem = ({ skill, index }: { skill: Skill; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const logo = skillLogos[skill.name];
 
   return (
     <motion.div
@@ -157,32 +169,20 @@ const SkillItem = ({ skill, index }: { skill: Skill; index: number }) => {
         className="flex items-center gap-3 p-3 rounded-xl glass-ios-card cursor-pointer transition-all duration-300"
         whileHover={{ scale: 1.03, y: -2 }}
       >
-        {/* <span className="text-2xl">{skill.icon}</span> */}
-        {skill.name === 'JavaScript' && <SiJavascript className="inline-block w-8 h-8" color='yellow' />}
-              {skill.name === 'TypeScript' && <SiTypescript className="inline-block w-8 h-8" color='#1b6be4' />}
-              {skill.name === 'Python' && <SiPython className="inline-block w-8 h-8" color='blue' />}
-              {skill.name === 'Java' && <SiSpringboot className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'SpringBoot' && <SiSpringboot className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'Node' && <SiNodedotjs className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'React' && <SiReact className="inline-block w-8 h-8" color='cyan' />}
-              {skill.name === 'MongoDB' && <SiMongodb className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'MySQL' && <SiMysql className="inline-block w-8 h-8" color='blue' />}
-              {skill.name === 'Hibernate' && <SiHibernate className="inline-block w-8 h-8" color='orange' />}
-              {skill.name === 'Firebase' && <SiFirebase className="inline-block w-8 h-8" color='yellow' />}
-              {skill.name === 'Google Cloud' && <SiGooglecloud className="inline-block w-8 h-8" color='blue' />}
-              {skill.name === 'Vercel' && <SiVercel className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Railway' && <SiRailway className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Figma' && <SiFigma className="inline-block w-8 h-8" color='pink' />}
-              {skill.name === 'Canva' && <SiCanva className="inline-block w-8 h-8" color='#1b6be4' />}
-              {skill.name === 'Git' && <SiGit className="inline-block w-8 h-8" color='orange' />}
-              {skill.name === 'GitHub' && <SiGithub className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Linux' && <SiLinux className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Windows' && ""}
-              {skill.name === 'macOS' && <SiApple className="inline-block w-8 h-8" color='black' />}
+        {logo ? (
+          <img
+            src={logo}
+            alt={`${skill.name} logo`}
+            loading="lazy"
+            decoding="async"
+            className="inline-block w-8 h-8 object-contain"
+          />
+        ) : (
+          <span className="text-2xl">{skill.icon}</span>
+        )}
         <span className="font-medium text-sm">{skill.name}</span>
       </motion.div>
 
-      {/* Popup with percentage */}
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -193,28 +193,17 @@ const SkillItem = ({ skill, index }: { skill: Skill; index: number }) => {
             className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 p-3 rounded-xl bg-card border border-primary/30 shadow-xl shadow-primary/20 min-w-[140px]"
           >
             <div className="text-center mb-2">
-              {/* <span className="text-3xl">{skill.icon}</span> */}
-              {skill.name === 'JavaScript' && <SiJavascript className="inline-block w-8 h-8" color='yellow' />}
-              {skill.name === 'TypeScript' && <SiTypescript className="inline-block w-8 h-8" color='#1b6be4' />}
-              {skill.name === 'Python' && <SiPython className="inline-block w-8 h-8" color='blue' />}
-              {skill.name === 'Java' && <SiSpringboot className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'SpringBoot' && <SiSpringboot className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'Node' && <SiNodedotjs className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'React' && <SiReact className="inline-block w-8 h-8" color='cyan' />}
-              {skill.name === 'MongoDB' && <SiMongodb className="inline-block w-8 h-8" color='#1ee178' />}
-              {skill.name === 'MySQL' && <SiMysql className="inline-block w-8 h-8" color='blue' />}
-              {skill.name === 'Hibernate' && <SiHibernate className="inline-block w-8 h-8" color='orange' />}
-              {skill.name === 'Firebase' && <SiFirebase className="inline-block w-8 h-8" color='yellow' />}
-              {skill.name === 'Google Cloud' && <SiGooglecloud className="inline-block w-8 h-8" color='blue' />}
-              {skill.name === 'Vercel' && <SiVercel className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Railway' && <SiRailway className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Figma' && <SiFigma className="inline-block w-8 h-8" color='pink' />}
-              {skill.name === 'Canva' && <SiCanva className="inline-block w-8 h-8" color='#1b6be4' />}
-              {skill.name === 'Git' && <SiGit className="inline-block w-8 h-8" color='orange' />}
-              {skill.name === 'GitHub' && <SiGithub className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Linux' && <SiLinux className="inline-block w-8 h-8" color='black' />}
-              {skill.name === 'Windows' && ""}
-              {skill.name === 'macOS' && <SiApple className="inline-block w-8 h-8" color='black' />}
+              {logo ? (
+                <img
+                  src={logo}
+                  alt={`${skill.name} logo`}
+                  loading="lazy"
+                  decoding="async"
+                  className="inline-block w-8 h-8 object-contain"
+                />
+              ) : (
+                <span className="text-3xl">{skill.icon}</span>
+              )}
               <p className="font-semibold mt-1">{skill.name}</p>
             </div>
             <div className="relative h-2 bg-muted rounded-full overflow-hidden">
@@ -226,7 +215,6 @@ const SkillItem = ({ skill, index }: { skill: Skill; index: number }) => {
               />
             </div>
             <p className="text-center text-sm text-primary font-bold mt-1">{skill.percentage}%</p>
-            {/* Arrow */}
             <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-primary/30" />
           </motion.div>
         )}
@@ -272,7 +260,6 @@ export const AboutSection = () => {
           </p>
         </motion.div>
 
-        {/* Education Journey - 2+1 Grid */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -286,7 +273,6 @@ export const AboutSection = () => {
           </h3>
 
           <div className="max-w-5xl mx-auto">
-            {/* First Row - 2 Cards */}
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {education.slice(0, 2).map((edu, index) => (
                   <motion.div
@@ -298,10 +284,8 @@ export const AboutSection = () => {
                     whileHover={{ y: -8, scale: 1.02, boxShadow: '0 20px 40px -15px hsl(var(--primary) / 0.3)' }}
                     className="group relative p-6 rounded-2xl glass-ios-card overflow-hidden"
                   >
-                  {/* Decorative gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  {/* Animated border glow */}
                   <motion.div
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
                     style={{
@@ -330,13 +314,11 @@ export const AboutSection = () => {
                     <p className="text-sm text-muted-foreground leading-relaxed">{edu.description}</p>
                   </div>
 
-                  {/* Corner accent */}
                   <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-colors" />
                 </motion.div>
               ))}
             </div>
 
-            {/* Second Row - 1 Card Centered */}
             <div className="flex justify-center">
               <motion.div
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -355,7 +337,6 @@ export const AboutSection = () => {
                 }}
                 className="group relative p-6 rounded-2xl glass-ios-card overflow-hidden w-full md:w-1/2"
               >
-                {/* Special highlight for latest education */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
                 
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -379,7 +360,6 @@ export const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/* Tech Stack - Categorized */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -396,17 +376,16 @@ export const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/* Certifications - Attractive Cards with Images */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          {/* <h3 className="text-2xl font-display font-semibold mb-8 flex items-center gap-3 justify-center">
+           <h3 className="text-2xl font-display font-semibold mb-8 flex items-center gap-3 justify-center">
             <Award className="text-primary" />
             Certifications
-          </h3> */}
+          </h3> 
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {certifications.map((cert, index) => (
@@ -428,18 +407,17 @@ export const AboutSection = () => {
                 }}
                 className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 cursor-pointer"
               >
-                {/* Image Container */}
                 <div className="relative h-40 overflow-hidden">
                   <motion.img
                     src={cert.image}
                     alt={cert.name}
+                    loading='lazy'
                     className="w-full h-full object-cover"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                   
-                  {/* Year badge */}
                   <motion.div
                     className="absolute top-3 right-3 px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-bold rounded-full"
                     initial={{ scale: 0 }}
@@ -451,7 +429,6 @@ export const AboutSection = () => {
                   </motion.div>
                 </div>
 
-                {/* Content */}
                 <div className="p-5">
                   <h4 className="font-display font-bold text-lg mb-2 group-hover:text-primary transition-colors">
                     {cert.name}
@@ -468,7 +445,6 @@ export const AboutSection = () => {
                   </motion.a>
                 </div>
 
-                {/* Animated border on hover */}
                 <motion.div
                   className="absolute inset-0 rounded-2xl pointer-events-none"
                   initial={{ opacity: 0 }}
@@ -482,7 +458,6 @@ export const AboutSection = () => {
                   }}
                 />
 
-                {/* Shine effect */}
                 <motion.div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
                   style={{

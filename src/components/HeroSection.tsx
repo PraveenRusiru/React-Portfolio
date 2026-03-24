@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Github,
   Linkedin,
@@ -95,6 +95,8 @@ const BinaryText = ({ text }: { text: string }) => {
 
 export const HeroSection = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const heroRef = useRef(null);
+  const isInView = useInView(heroRef, { amount: 0.3 });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -120,7 +122,7 @@ export const HeroSection = () => {
             <div className="relative">
               {/* Tech background rings */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] z-0">
-                <motion.div
+                {/* <motion.div
                   className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#1e3a5f]/30"
                   animate={{ rotate: 360 }}
                   transition={{
@@ -137,20 +139,20 @@ export const HeroSection = () => {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                />
-                <motion.div
+                /> */}
+                {/* <motion.div
                   className="absolute top-1/2 left-1/2 w-[300px] h-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[1px] border-[#4caf50]/20 border-t-transparent border-l-transparent"
                   animate={{ rotate: -360 }}
                   transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                />
+                /> */}
                 <motion.div
                   className="absolute top-1/2 left-1/2 w-[450px] h-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
+                  animate={isInView ? { rotate: 360 } : { rotate: 0 }}
+                  transition={
+                    isInView
+                      ? { duration: 10, repeat: Infinity, ease: "linear" }
+                      : { duration: 0.3 }
+                  }
                 >
                   <div className="w-3 h-3 bg-[#0d47a1] rounded-full shadow-[0_0_15px_#0d47a1] absolute -top-1.5 left-1/2 -translate-x-1/2" />
                 </motion.div>
@@ -174,7 +176,7 @@ export const HeroSection = () => {
               <motion.img
                 src={profilePhoto}
                 loading="lazy"
-                  decoding="async"
+                decoding="async"
                 alt="Profile Photo"
                 className="h-[60vh] lg:h-[75vh] w-auto object-cover object-top relative z-10 drop-shadow-2xl"
                 animate={{ y: [-10, 10, -10] }}
@@ -338,8 +340,8 @@ export const HeroSection = () => {
 
               {/* CV Download button */}
               <motion.a
-                href="/Praveen_Rusiru_CV.pdf"
-                download="Praveen_Rusiru_CV.pdf"
+                href="@/assets/Praveen Rusiru - Springboot Development _ Backend Developer CV .pdf"
+                download="@/assets/Praveen Rusiru - Springboot Development _ Backend Developer CV .pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold relative overflow-hidden group"
