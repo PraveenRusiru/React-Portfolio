@@ -44,7 +44,6 @@ export const ContactSection = () => {
     /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
     if (!emailRegex.test(email)) {
-    console.log("Invalid email address");
     triggerNotification({
       type: "error",
       message: "Please enter a valid email address.",
