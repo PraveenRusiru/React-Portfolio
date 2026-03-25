@@ -35,49 +35,55 @@ export const ContactSection = () => {
     
   }
 
-  const handleSubmit = async(e:React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    try {
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
+  const email = formData.email.trim();
+
+  const emailRegex =
+    /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (!emailRegex.test(email)) {
+    console.log("Invalid email address");
+    triggerNotification({
+      type: "error",
+      message: "Please enter a valid email address.",
+      icon: "check",
+    });
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    await emailjs.send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      {
         name: formData.name,
-        email: formData.email,
+        email: email,
         subject: formData.subject,
-        message: formData.message
+        message: formData.message,
       },
-         PUBLIC_KEY,
-      )
-      .then(
-        () => {
-          triggerNotification({
-            type: 'success',
-            message: 'Email sent successfully!',
-            icon:'plane'
-          })
-        },
-        (error) => {
-          triggerNotification({
-        type: 'error',
-        message: 'Failed to send message. Please try again later.',
-        icon: 'check',
-      });
-        },
-      );
-    }catch (error) {
-      triggerNotification({
-        type: 'error',
-        message: 'Failed to send message. Please try again later.',
-        icon: 'check',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-    
-  };
+      PUBLIC_KEY
+    );
+
+    triggerNotification({
+      type: "success",
+      message: "Email sent successfully!",
+      icon: "plane",
+    });
+  } catch (error) {
+    console.log("FAILED...", error);
+    triggerNotification({
+      type: "error",
+      message: "Failed to send message. Please try again later.",
+      icon: "check",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const handleCopyEmail = useCallback(() => {
     navigator.clipboard.writeText('praveenrusiru752@gmail.com');
