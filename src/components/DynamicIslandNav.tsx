@@ -68,7 +68,6 @@ export const DynamicIslandNav = () => {
   }, []);
 
   // const scrollTo = (href: string) => {
-  //     console.log('Clicked:', href);
   //   const element = document.querySelector(href);
   //   if (element) element.scrollIntoView({ behavior: 'smooth' });
   //   setIsMobileMenuOpen(false);

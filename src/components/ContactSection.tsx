@@ -38,10 +38,7 @@ export const ContactSection = () => {
   const handleSubmit = async(e:React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    console.log(import.meta.env);
-console.log(import.meta.env.SERVICE_ID);
-console.log(import.meta.env.TEMPLATE_ID);
-console.log(import.meta.env.PUBLIC_KEY);
+
     try {
       await emailjs.send(
         SERVICE_ID,
@@ -56,7 +53,6 @@ console.log(import.meta.env.PUBLIC_KEY);
       )
       .then(
         () => {
-          console.log('SUCCESS!');
           triggerNotification({
             type: 'success',
             message: 'Email sent successfully!',
@@ -69,7 +65,6 @@ console.log(import.meta.env.PUBLIC_KEY);
         message: 'Failed to send message. Please try again later.',
         icon: 'check',
       });
-          console.log('FAILED...', error);
         },
       );
     }catch (error) {
