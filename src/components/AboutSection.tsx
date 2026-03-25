@@ -24,6 +24,7 @@ import githubLogo from "@/assets/tech/github.svg";
 import linuxLogo from "@/assets/tech/linux.svg";
 import windowsLogo from "@/assets/tech/windows.svg";
 import appleLogo from "@/assets/tech/apple.svg";
+import introPython from "@/assets/certificates/introduction to python.png";
 
 const education = [
   {
@@ -121,7 +122,7 @@ const certifications = [
     name: 'Introduction to Python',
     issuer: 'DataCamp',
     year: 'Mar 2025',
-    image: '@/assets/certificates/introduction to python.png',
+    image: introPython,
     credentialUrl: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/353b9ad941226b2d408c28d81ecf823fe0e558b8',
   },
 ];
